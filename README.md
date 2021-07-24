@@ -3,8 +3,8 @@
 
 ## Application's Requirements
 To execcute the app properly you need to install first the following libraries:
-appdirs==1.4.4
-audioread==2.1.9
+- appdirs==1.4.4
+- audioread==2.1.9
 backcall==0.2.0
 certifi==2021.5.30
 cffi==1.14.5
