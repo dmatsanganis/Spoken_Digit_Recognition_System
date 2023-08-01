@@ -1,49 +1,27 @@
-# Digits_ASR
+# Spoken Digit Recognition System
+
+This project is a spoken digit recognition system that uses audio signal processing and machine learning techniques to identify and output spoken digits from input audio files.
+
+The system works by preprocessing the audio signal, extracting relevant features, and using a trained Random Forest Classifier to recognize the spoken digits. The system is capable of separating the audio signal into segments representing background (silence) and foreground (spoken digits), making it effective for continuous speech recognition.
+
+## How it works
+
+1. **Preprocessing**: This stage involves reading the input audio file with a specific sampling rate and applying a FIR (Finite Impulse Response) band-pass filter to the signal. This filter allows only a specific range of frequencies to pass through, which helps to eliminate noise and other irrelevant information from the signal.
+
+2. **Training**: The system is trained using audio files of spoken digits, stored in a training dataset. For each audio file, the MFCC (Mel Frequency Cepstral Coefficients) features are extracted and used as input to a Random Forest Classifier. The labels (digits spoken in the audio files) are also provided to the classifier for training.
+
+3. **Root Mean Square Energy & Zero Crossing Rate**: For the input audio file, the system calculates the Root Mean Square Energy and the Zero Crossing Rate. These features are used in the next step to separate the signal into segments representing background (silence) and foreground (spoken digits).
+
+4. **Background vs. Foreground Classification**: Based on the energy and zero-crossing rate, each frame of the signal is classified as either background or foreground. Segments of the signal corresponding to foreground frames are considered as potential digit utterances.
+
+5. **Digit Recognition**: For each identified digit utterance, MFCC features are again extracted and provided to the trained Random Forest Classifier for prediction.
+
+6. **Accuracy & Confusion Matrix**: The system computes the accuracy of the Background vs. Foreground Classifier and the Random Forest Classifier using a test dataset. A confusion matrix is also plotted to visualize the performance of the digit recognition system.
+
+## Contributors
+
+- [x] [Dimitris Matsanganis](https://github.com/dmatsanganis)
 
 
-## Application's Requirements
-To execcute the app properly you need to install first the following libraries:
-- appdirs==1.4.4
-- audioread==2.1.9
-- backcall==0.2.0
-- certifi==2021.5.30
-- cffi==1.14.5
-- chardet==4.0.0
-- colorama==0.4.4
-- cycler==0.10.0
-- decorator==5.0.9
-- hmmlearn==0.2.5
-- idna==2.10
-- ipython==7.25.0
-- ipython-genutils==0.2.0
-- jedi==0.18.0
-- joblib==1.0.1
-- kiwisolver==1.3.1
-- librosa==0.8.1
-- llvmlite==0.36.0
-- matplotlib==3.4.2
-- matplotlib-inline==0.1.2
-- numba==0.53.1
-- numpy==1.21.0
-- packaging==20.9
-- parso==0.8.2
-- pickleshare==0.7.5
-- Pillow==8.3.0
-- pooch==1.4.0
-- prompt-toolkit==3.0.19
-- pycparser==2.20
-- Pygments==2.9.0
-- pyparsing==2.4.7
-- python-dateutil==2.8.1
-- requests==2.25.1
-- resampy==0.2.2
-- scikit-learn==0.24.2
-- scipy==1.7.0
-- six==1.16.0
-- sklearn==0.0
-- sounddevice==0.4.1
-- SoundFile==0.10.3.post1
-- threadpoolctl==2.1.0
-- traitlets==5.0.5
-- urllib3==1.26.6
-- wcwidth==0.2.5
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
